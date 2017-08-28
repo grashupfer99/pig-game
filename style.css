@@ -1,0 +1,570 @@
+/***************** GENERAL ***************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    background: #36384C; 
+    font-family: 'Chewy';
+    font-weight: 300;
+    position: relative;
+    height: 100vh;
+    color: #555;
+}
+
+/*****************************************/
+
+/************ LOADING SCREEN *************/
+
+.pig {
+    width: 170px;
+    height: 180px;
+    position: absolute;
+    top: 0;
+    right: 27%;
+}
+
+.preload {
+    width: 100%;
+    height: 100%;
+    background: #36384C;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.logo {
+    width: 380px;
+    height: 70px;
+    margin: 150px auto 50px auto;
+    font-size: 50px;
+    text-shadow: -1px 2px 2px #000;
+    text-align: center;
+    color: azure;
+    font-family: 'Chewy';
+}
+
+.loader-frame {
+    width: 315px;
+    height: 315px;
+    margin: auto;
+    position: relative;
+}
+
+.percent {
+    text-align: center;
+    line-height: 310px;    
+    color: #fff;
+    font-size: 4em;
+}
+
+.loader1,
+.loader2 {
+    position: absolute;
+    border: 15px solid transparent;
+    border-radius: 50%;
+}
+
+.loader1 {
+    width: 315px;
+    height: 315px;
+    border-top: 15px solid azure;
+    border-bottom: 15px solid azure;
+    animation: clockwisespin 2s linear 3;
+}
+
+.loader2 {
+    width: 290px;
+    height: 290px;
+    border-left: 15px solid #849974;
+    border-right: 15px solid #849974;
+    top: 15px; left: 15px;
+    animation: anticlockwisespin 2s linear 3;
+    
+}
+
+/*****************************************/
+
+
+/*************** HELP ****************/
+
+.help-menu {
+    font-family: 'Chewy';
+    font-size: 1.7em;
+    color: #E3BAB3;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute; 
+    left: 1%;
+    bottom: 1%;
+    padding: 6px 20px; 
+    z-index: 300;
+    background: #36384C;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.help-menu:hover { color: gold; }
+
+.modal {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.help-info {
+    width: 700px;
+    height: 450px;
+    line-height: 200px;
+    position: relative;
+    top: 45%; 
+    transform: translateY(-45%);
+    margin: 0 auto;
+    background-color: #36384C;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.9);
+    z-index: 3000;
+    color: #E3BAB3;
+    font-size: 1.1em;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.help-header {
+    width: 100%;
+    height: 22%;
+    padding-top: 12px;
+}
+
+.help-header p {
+        width: 100%;
+        line-height: 1.6em;
+        text-align: justify;
+}
+
+.help-body p {
+    width: 100%;
+    line-height: 1.6em;   
+    margin-top: .5em;
+    text-align: left;
+}
+
+.help-body span {
+    display: inline-block;
+    background: #613A43;
+    padding: 3px 6px;
+    border-radius: 8px;
+    border: 1px solid black;
+    font-size: .8em;
+}
+
+.help-body img {
+    width: 26px;
+    height: 26px;
+    animation: none;
+}
+
+span.default-score {
+  background: #bbb;
+  color: #555;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/*************************************/
+
+/*********** PROGRESS BAR ************/
+
+.progress-bar {
+    width: 50px; 
+    height: 340px;
+    background-color: #bbb;
+    border-radius: 13px;
+    padding: 3px;
+    margin: 50px auto;
+    position: absolute;
+    left: 5%;
+    top: 100px;
+}
+
+.progress {
+    width: 40px;
+    height: 0;
+    border-radius: 10px;
+    background-color: #849974;
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+}
+
+
+.progress-bar-2 {
+    width: 50px;
+    height: 340px;
+    background-color: #bbb;
+    border-radius: 13px;
+    padding: 3px;
+    margin: 50px auto;
+    position: absolute;
+    right: 5%;
+    top: 100px;
+}
+
+.progress-2 {
+    width: 40px;
+    height: 0;
+    border-radius: 10px;
+    background-color: #849974;
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+}
+
+
+/*************************************/
+
+/*********** SCORE TO WIN ************/
+
+.score-input {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8%;
+    outline: none;
+    font-family: 'Chewy';
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    width: 200px;
+    height: 45px;
+    text-align: center;
+    border-radius: 15px;
+    background: #bbb; 
+    border: 1px solid black;
+}
+
+/*************************************/
+
+/*********** MAIN WRAPPER ************/
+
+.wrapper {
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: #36384C;
+    z-index: 1000;
+}
+
+
+/*************************************/
+
+/************* PLAYERS ***************/
+
+.player-0-panel,
+.player-1-panel {
+    width: 50%;
+    float: left;
+    height: 600px;
+    padding: 100px;
+}
+
+.player-name {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    color: #E3BAB3;
+}
+
+.player-score {
+    text-align: center;
+    font-size: 8em;
+    font-weight: 100;
+    color: #849974; 
+    margin-top: 40px;
+    margin-bottom: 70px;
+
+}
+
+.active { background-color: #313349; } 
+.active .player-name { font-weight: 300; }
+
+.active .player-name::after {
+    content: '';
+  background-image: url("pig.png");
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    animation: turn-marker .3s ;
+}
+
+.player-current-box { color: #fff; }
+.player-current-score { font-size: 30px; }
+
+/*************************************/
+
+/************* BUTTONS ***************/
+
+button {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-family: 'Chewy';
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+    outline: none;
+}
+
+button:hover { font-weight: 600; }
+
+.btn-new { top: 45px; color: #E3BAB3} 
+.btn-roll { top: 435px; left: 380px; color: #E3BAB3} 
+.btn-hold { top: 435px; left: 620px; color: #E3BAB3} 
+
+.btn-new,
+.btn-roll, 
+.btn-hold {
+    padding: 3px;
+    margin: 0;
+    border-radius: 15px;
+    font-size: 1.6em;
+    background-color: #613A43;
+    border: 1px solid black;
+}
+
+.btn-new,
+.btn-roll,
+.btn-hold {
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.15);
+    transition: all 0.15s ease 0s;
+}
+
+.btn-new:active {
+  top:50px;
+  left:503px;
+  box-shadow: 0px 0px;
+}
+
+.btn-roll:active {
+    top: 440px;
+    left:385px;
+    box-shadow: 0px 0px;   
+}
+
+.btn-hold:active {
+  top: 440px;
+  left: 625px;
+  box-shadow: 0px 0px;  
+}
+
+.btn-new:hover,
+.btn-roll:hover,
+.btn-hold:hover {
+  background-color: #4a2931;
+}
+
+/*************************************/
+
+/************** DICE  ****************/
+
+.dice-0 {
+    position: absolute;
+    left: 45%;
+    top: 135px;
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+    border: 5px solid #E3BAB3;
+}
+
+.dice-1 {
+    position: absolute;
+    left: 45%;
+    top: 270px;
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+    border: 5px solid #E3BAB3;
+}
+
+/* When the player rolls 1 */
+.dice-0-animation,
+.dice-1-animation { 
+    border: 3px solid #000; 
+    animation: dice-spin .4s; 
+    left: 45%; 
+}
+
+
+/*************************************/
+
+/********* SHAKE ANIMATION ***********/
+img {
+    -webkit-animation-name: img-shake;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+/**************************************/
+
+/** FIRING SCORE ABOVE PLAYERS ICONS **/
+
+.current-0-animation {
+    position: absolute;
+    top: 40px;
+    left: 180px;
+    animation: fadein 1s;
+    animation: zoom 2s;
+    animation-iteration-count: 1;
+      animation-fill-mode: both;
+    font-size: 3em;
+}
+
+
+.current-1-animation {
+    position: absolute;
+    top: 40px;
+    right: 180px;
+    animation: fadein .4s ;
+    animation: zoom .8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    font-size: 3em;
+}
+
+/**************************************/
+
+/************* WINNER *****************/
+
+.winner { background-color: #313349; }
+.winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+/**************************************/
+
+/************** ANIMATIONS ***************/
+
+/* Fires up a current score above players each time 'ROLL' button is being clicked */
+
+@keyframes fadein {
+  0% { top: 20em; opacity: 0; }
+  20% { opacity: 0.2; }
+  40% { opacity: 0.4; }
+  60% { opacity: 0.6; }
+  80% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+@keyframes zoom {
+  0% { transform: scale(.2); opacity: 1; }
+  70% { transform: scale(1); }
+  100% { opacity: 0; }
+}
+
+
+/* 'Pig' turn marker appears when it's a player's turn */
+
+@keyframes turn-marker {
+    0%   {width: 40px; height: 40px;}
+    15%  {width: 43px; height: 43px;}
+    25%  {width: 46px; height: 46px;}
+    40%  {width: 49px; height: 49px;}
+    50%  {width: 52px; height: 52px;}
+    60%  {width: 49px; height: 49px;}
+    75%  {width: 46px; height: 46px;}
+    85%  {width: 43px; height: 43px;}
+    100% {width: 40px; height: 40px;}
+}
+
+@keyframes dice-animation {
+    0%   { width: 100px; height: 100px;}
+    15%  { width: 110px; height: 110px;}
+    25%  { width: 120px; height: 120px;}
+    40%  { width: 130px; height: 130px;}
+    50%  { width: 135px; height: 135px;}
+    60%  { width: 130px; height: 130px;}
+    75%  { width: 120px; height: 120px;}
+    85%  { width: 110px; height: 110px;}
+    100% { width: 100px; height: 100px;}
+}
+
+@keyframes dice-spin {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}
+
+
+/* Shake animation */
+
+@keyframes img-shake {
+    0%  { transform: translate(2px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(0px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(2px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+/* Loading screen animation */
+
+@keyframes clockwisespin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes anticlockwisespin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+/*****************************************/

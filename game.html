@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="style.css"> 
+        <title>The Pig Game</title>
+    </head>
+
+    <body>
+
+        <!-- Main wrapper -->
+        <div class="wrapper clearfix">
+
+        <!-- Containers for the Help Menu -->
+            <div class="modal" style="display:none" > 
+                <div class="help-info" style="display:none"></div>
+            </div>
+    
+            <!-- Help Menu -->
+            <div class="help-menu">! Help</div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="progress-bar-2">
+                <div class="progress-2" id="progress-2"></div>
+            </div>
+
+            <!-- Player 1 -->
+            <div class="player-0-panel active">
+                <div class="player-name" id="name-0">Player 1</div>
+                <div class="player-score" id="score-0">43</div>
+                <div class="player-current-box">
+                    <div class="player-current-score" id="current-0"></div>
+                </div>
+            </div>
+            
+            <!-- Player 2 -->
+            <div class="player-1-panel">
+                <div class="player-name" id="name-1">Player 2</div>
+                <div class="player-score" id="score-1">72</div>
+                <div class="player-current-box">
+                    <div class="player-current-score" id="current-1"></div>
+                </div>
+            </div>
+         
+            <!-- The winning score input field -->
+            <form id="score-form">    
+                <input class="score-input" type="text">
+            </form>
+
+            <!-- Buttons -->
+            <button class="btn-new">New game</button>
+            <button class="btn-roll">Roll</button>
+            <button class="btn-hold">Hold</button>
+        
+            <!-- Dice -->    
+            <img src="dice-5.png" alt="Dice" class="dice-0">
+            <img src="dice-5.png" alt="Dice" class="dice-1">
+        </div> <!-- End of the main wrapper -->
+
+        <script src="app.js"></script>
+    </body>
+
+</html>
