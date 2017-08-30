@@ -1,5 +1,5 @@
 // Function for the loading screen
-( () =>  {
+( function()  {
 
 	const loadingScreen = document.getElementById("loading-screen");
 	const percent = document.querySelector(".percent");
@@ -14,8 +14,8 @@
 		if(loader == 100) {
 			clearInterval(id);
 			window.open("game.html", "_self");
-			
-		// Else, keep ++	
+
+		// Else, keep ++
 		} else {
 			loader += 2;
 			counter += 2;
