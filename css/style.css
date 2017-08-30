@@ -668,7 +668,7 @@ img {
     .help-info {
         width: 90%;
         height: 70%;
-        font-size: 1.5em;
+        font-size: 1.1em;
     }
 
     .help-body img {
@@ -701,7 +701,7 @@ img {
         bottom: 3%;
         font-size: 1.7em;
         width: 350px;
-        height: 70px;
+        height: 63px;
     }
 
     /*********** MAIN WRAPPER ************/
@@ -720,7 +720,7 @@ img {
         margin-top: .8em;
     }
 
-    .player-score { font-size: 10em; padding-top: 20px; padding-bottom: 10px; }
+    .player-score { font-size: 8.5em; padding-top: 20px; padding-bottom: 10px; }
 
     .active .player-name::after {
         width: 55px;
@@ -731,14 +731,14 @@ img {
     button { width: 220px; }
 
     .btn-new { top: 3%; color: #E3BAB3}
-    .btn-roll { top: 590px; left: 35%; color: #E3BAB3; }
-    .btn-hold { top: 590px; left: 65%; color: #E3BAB3; }
+    .btn-roll { top: 505px; left: 35%; color: #E3BAB3; }
+    .btn-hold { top: 505px; left: 65%; color: #E3BAB3; }
 
     .btn-new,
     .btn-roll,
     .btn-hold {
         width: 270px;
-        padding: 10px;
+        padding: 8px;
         margin: 0;
         border-radius: 15px;
         font-size: 2.1em;
@@ -747,22 +747,22 @@ img {
     }
 
     .btn-new:active { top: 4%; }
-    .btn-roll:active { top: 597px; left: 37%; }
-    .btn-hold:active { top: 597px; left: 67%; }
+    .btn-roll:active { top: 510px; left: 37%; }
+    .btn-hold:active { top: 510px; left: 67%; }
 
     /************** DICE  ****************/
     .dice-0 {
         left: 44%;
-        top: 245px;
-        height: 130px;
+        top: 220px;
+        height: 115px;
         box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
         border: 5px solid #E3BAB3;
     }
 
     .dice-1 {
         left: 44%;
-        top: 410px;
-        height: 130px;
+        top: 350px;
+        height: 115px;
         box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
         border: 5px solid #E3BAB3;
     }
@@ -775,17 +775,9 @@ img {
       left: 44%;
     }
 
-
     /** FIRING SCORE ABOVE PLAYERS ICONS **/
-    .current-0-animation {
-        top: 80px;
-        left: 18%;
-    }
-
-    .current-1-animation {
-        top: 80px;
-        right: 18%;
-    }
+    .current-0-animation { top: 80px; left: 18%; }
+    .current-1-animation { top: 80px; right: 18%; }
 
 /**************************************/
 
@@ -797,7 +789,7 @@ img {
 
   /*************** HELP ****************/
   .help-menu { font-size: 2.7em; }
-
+  .help-info { font-size: 1.5em; }
 
   /*********** MAIN WRAPPER ************/
   .wrapper {
@@ -816,10 +808,19 @@ img {
 
 
   /************* BUTTONS ***************/
+  .btn-roll { top: 590px; left: 35%; color: #E3BAB3; }
+  .btn-hold { top: 590px; left: 65%; color: #E3BAB3; }
+
   .btn-new,
   .btn-roll,
   .btn-hold { font-size: 2.4em; }
 
+  /************** DICE  ****************/
+  .dice-0 { top: 245px; height: 130px; }
+  .dice-1 { top: 410px; height: 130px; }
+
+  .btn-roll:active { top: 597px; left: 37%; }
+  .btn-hold:active { top: 597px; left: 67%; }
 
 } /* end of @media (mind-width: 1200px)
 
