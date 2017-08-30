@@ -1,22 +1,22 @@
 
 let gameScore, 		// Global score
-	roundScore, 	// round score 
+	roundScore, 	// round score
 	activePlayer, 	// active player
 	winningScore, 	// winning score
-	progBar0,		// progress bar (player 1) 
+	progBar0,		// progress bar (player 1)
 	progBar1;		// progress bar (player 2)
 
 progBar0 = document.getElementById('progress');
 progBar1 = document.getElementById('progress-2');
 
-// Initialize the game  
+// Initialize the game
 initialize();
 
 // Building an HTML markup for the help menu
 displayHelp();
 
 // Event listener for the ROLL button
-document.querySelector('.btn-roll').addEventListener('click', () => {
+document.querySelector('.btn-roll').addEventListener('click', function() {
 
 	// Generating random numbers for both dice
 	let dice_1 = rand();
@@ -39,7 +39,7 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
 		// Display the current score above each player
 		renderGameScore(activePlayer, 0, 'Oops!');
 
-		// Display animations on dice that equals to 1  
+		// Display animations on dice that equals to 1
 		diceRollingAnimation();
 
 		// Switch players, reset the current score
@@ -57,11 +57,11 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
 		// Display progress bars for each player
 		progressBar(gameScore[0], progBar0);
 		progressBar(gameScore[1], progBar1);
-			
+
 		// Display the current score above each player
 		renderGameScore(activePlayer, 0, 'rolled');
 
-		// Display animations on dice that equals to 1  
+		// Display animations on dice that equals to 1
 		diceRollingAnimation();
 
 		// Switch players, reset the current score
@@ -86,8 +86,8 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
 	}
 });
 
-// Event listener for the Hold button 
-document.querySelector('.btn-hold').addEventListener('click', () => {
+// Event listener for the Hold button
+document.querySelector('.btn-hold').addEventListener('click', function() {
 
 	// Add current score to the player's global score
 	gameScore[activePlayer] += roundScore;
@@ -107,16 +107,12 @@ document.querySelector('.btn-hold').addEventListener('click', () => {
 
 	// Checking for the winner
 	if (gameScore[activePlayer] >= winningScore) {
-		
-		// preventing the progress bar to go off the scale (higher than 100%)
-		if (activePlayer === 0) {
-			progressWinFix(progBar0);	
-		} else {
-			progressWinFix(progBar1);
-		}
 
-		// Replace the active player with the 'Winner!' 
-		document.querySelector('#name-' + activePlayer).textContent = 'Winner!';		
+		// preventing the progress bar to go off the scale (higher than 100%)
+		progressWinFix(progBar0, progBar1);
+
+		// Replace the active player with the 'Winner!'
+		document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
 		// When the winner is found, hide the dice
 		document.querySelector('.dice-0').style.display = 'none';
 		document.querySelector('.dice-1').style.display = 'none';
@@ -127,16 +123,16 @@ document.querySelector('.btn-hold').addEventListener('click', () => {
 		// remove the Roll and Hold buttons
 		document.querySelector('.btn-roll').style.display = 'none';
 		document.querySelector('.btn-hold').style.display = 'none';
-			
-	// If no winner is found - next turn		
+
+	// If no winner is found - next turn
 	} else {
 		nextTurn();
-	}		
+	}
 });
 
 
 // Animation when the player rolls 1 or two 6 in a row
-function diceRollingAnimation() { 
+function diceRollingAnimation() {
 
 	let img1 = document.querySelector('.dice-0');
 	let img2 = document.querySelector('.dice-1');
@@ -146,7 +142,7 @@ function diceRollingAnimation() {
 		document.querySelector(".dice-0").classList.add("dice-0-animation");
 		document.querySelector(".dice-1").classList.add("dice-1-animation");
 
-		setTimeout( () => {
+		setTimeout( function() {
 			document.querySelector(".dice-0").classList.remove("dice-0-animation");
 			document.querySelector(".dice-1").classList.remove("dice-1-animation");
 			document.querySelector('.dice-0').style.display = 'none';
@@ -157,29 +153,29 @@ function diceRollingAnimation() {
 	} else if ((img1.src.indexOf('dice-1.png') != -1) && (img2.src.indexOf('dice-1.png') != -1)) {
 		document.querySelector(".dice-0").classList.add("dice-0-animation");
 		document.querySelector(".dice-1").classList.add("dice-1-animation");
-		
-		setTimeout( () => {
+
+		setTimeout( function() {
 			document.querySelector(".dice-0").classList.remove("dice-0-animation");
 			document.querySelector(".dice-1").classList.remove("dice-1-animation");
 			document.querySelector('.dice-0').style.display = 'none';
 			document.querySelector('.dice-1').style.display = 'none';
 		}, 500);
 
-	// When the player rolls 1 (upper dice) 		
+	// When the player rolls 1 (upper dice)
 	} else if (img1.src.indexOf('dice-1.png') != -1) {
 		document.querySelector(".dice-0").classList.add("dice-0-animation");
 
-		setTimeout( () => {
+		setTimeout( function() {
 			document.querySelector(".dice-0").classList.remove("dice-0-animation");
 			document.querySelector('.dice-0').style.display = 'none';
 			document.querySelector('.dice-1').style.display = 'none';
 		}, 500);
 
-	// When the player rolls 1 (lower dice) 	
+	// When the player rolls 1 (lower dice)
 	} else if (img2.src.indexOf('dice-1.png') != -1 )  {
-		document.querySelector(".dice-1").classList.add("dice-1-animation");		
-		
-		setTimeout( () => {
+		document.querySelector(".dice-1").classList.add("dice-1-animation");
+
+		setTimeout( function() {
 			document.querySelector(".dice-1").classList.remove("dice-1-animation");
 			document.querySelector('.dice-0').style.display = 'none';
 			document.querySelector('.dice-1').style.display = 'none';
@@ -190,10 +186,10 @@ function diceRollingAnimation() {
 
 // Next turn
 function nextTurn() {
-	
-	// Changing active players 
+
+	// Changing active players
 	activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-	// When it's another player's turn, reset the round score to 0 
+	// When it's another player's turn, reset the round score to 0
 	roundScore = 0;
 
 	// Switch active players
@@ -202,7 +198,7 @@ function nextTurn() {
 }
 
 
-// Reset all info 
+// Reset all info
 document.querySelector('.btn-new').addEventListener('click', initialize);
 
 
@@ -212,9 +208,9 @@ function renderGameScore(myActivePlayer, myRoundScore, myString) {
 	if (myActivePlayer === 0) {
 		document.getElementById("current-0").style.display = 'block';
 		document.getElementById("current-0").classList.add("current-0-animation");
-		document.querySelector(".current-0-animation").textContent = myRoundScore + ' ' + myString; 
-		
-		setTimeout( () => {
+		document.querySelector(".current-0-animation").textContent = myRoundScore + ' ' + myString;
+
+		setTimeout( function() {
 			document.getElementById("current-0").classList.remove("current-0-animation");
 			document.getElementById("current-0").style.display = 'none';
 		}, 600);
@@ -223,20 +219,20 @@ function renderGameScore(myActivePlayer, myRoundScore, myString) {
 		document.getElementById("current-1").style.display = 'block';
 		document.getElementById("current-1").classList.add("current-1-animation");
 		document.querySelector(".current-1-animation").textContent = myRoundScore + ' ' + myString;
-		
-		setTimeout(() => {
+
+		setTimeout( function() {
 			document.getElementById("current-1").classList.remove("current-1-animation");
 			document.getElementById("current-1").style.display = 'none';
 			}, 600);
 		}
 }
 
-// Initialize the game 
+// Initialize the game
 function initialize() {
 	gameScore = [0,0];
 	activePlayer = 0;
 	roundScore = 0;
-	
+
 	// Reset the input field and set the default winning score to 100
 	document.forms['score-form'].reset();
 	winningScore = 100;
@@ -250,7 +246,7 @@ function initialize() {
 	document.querySelector('.btn-roll').style.display = 'block';
 	document.querySelector('.btn-hold').style.display = 'block';
 
-	for(let i=0; i<=1; i+=1) { 
+	for(let i=0; i<=1; i+=1) {
 		// Display the dice
 		document.querySelector('.dice-' + i).style.display = 'none';
 		// Display the game score
@@ -260,8 +256,8 @@ function initialize() {
 		document.querySelector('.player-' + i + '-panel').classList.remove('active');
 	}
 	// Display Player 1 and Player 2
-	document.getElementById('name-0').textContent = 'Player 1';	
-	document.getElementById('name-1').textContent = 'Player 2';	
+	document.getElementById('name-0').textContent = 'Player 1';
+	document.getElementById('name-1').textContent = 'Player 2';
 	// Highlight the active player
 	document.querySelector('.player-0-panel').classList.add('active');
 }
@@ -269,13 +265,14 @@ function initialize() {
 
 // Progress bar
 function progressBar(myScore, progBarId) {
-// Headache, pain, stress, persistence, embarrassed myself in Stackoverflow - this is how this line of code was born! 
+// Headache, pain, stress, persistence, embarrassed myself in Stackoverflow - this is how this line of code was born!
 	progBarId.style.height = ((myScore / winningScore) * 100) + '%';
 }
 
 // Preventing the progress bar to go off the scale (higher than 100%)
-function progressWinFix(winnerID) {
-	winnerID.style.height = 100 + '%';
+function progressWinFix(progBarId1, progBarId2) {
+		progBarId1.style.height = 100 + '%';
+		progBarId2.style.height = 100 + '%';
 }
 
 // Display placeholder - default score to win the game
@@ -287,26 +284,26 @@ function defaultScorePlaceholder(defaultScore) {
 function setWinningScore() {
 	// Get the value of the input field
 	let inputScore = document.querySelector('.score-input').value;
-	// Set the winning score equals to the input  
-	if (inputScore) { // write a script to the check if input isNan! 
+	// Set the winning score equals to the input
+	if (inputScore) { // write a script to the check if input isNan!
 		winningScore = inputScore;
-	// else, set the default winning score 
+	// else, set the default winning score
 	} else {
 		winningScore = 100; // default winning score
-	}	
+	}
 }
 
 // function to display the dice imgs
 function renderDice(diceOne, diceTwo, randDice1, randDice2) {
 	diceOne.style.display = 'block';
-	diceOne.src = 'dice-' + randDice1 + '.png'; 
+	diceOne.src = 'images/dice-' + randDice1 + '.png';
 	diceTwo.style.display = 'block';
-	diceTwo.src = 'dice-' + randDice2 + '.png'; 
+	diceTwo.src = 'images/dice-' + randDice2 + '.png';
 }
 
 
 // Help menu to display the game rules
-document.querySelector('.help-menu').addEventListener('click', () => { 
+document.querySelector('.help-menu').addEventListener('click', function() {
 	let helpMenu = document.querySelector('.help-info');
 	helpMenu.style.display = 'block';
 	let modal = document.querySelector('.modal');
@@ -316,7 +313,7 @@ document.querySelector('.help-menu').addEventListener('click', () => {
 
 // if a user clicks anywhere outside the modal, close the Help menu
 let myModal = document.querySelector('.modal');
-window.onclick = (event) => {
+window.onclick = function(event)  {
 	if(event.target == myModal) {
 		myModal.style.display = 'none';
 	}
@@ -334,18 +331,18 @@ function helpMarkup() {
 	drawMarkup += '<div class="help-header">';
     drawMarkup += '<p>The game has two players competing with each other to reach a winning score (100 points). Every turn, a player rolls the dice and the number gets added to his round score. In the game, players are faced with a few decisions:</p></div>';
     drawMarkup += '<div class="help-body">';
-    drawMarkup += '<p><span>ROLL</span> - When the player rolls a</p>'; 
-    drawMarkup += '<p><img src="dice-1.png" alt="dice-1"> The player scores nothing and it becomes another player’s turn.</p>';
-    drawMarkup += '<p><img src="dice-2.png" alt="dice-2"> ';
-    drawMarkup += '<img src="dice-3.png" alt="dice-3"> ';
-    drawMarkup += '<img src="dice-4.png" alt="dice-4"> ';
-    drawMarkup += '<img src="dice-5.png" alt="dice-5"> ';
-    drawMarkup += '<img src="dice-6.png" alt="dice-6"> ';
+    drawMarkup += '<p><span>ROLL</span> - When the player rolls a</p>';
+    drawMarkup += '<p><img src="images/dice-1.png" alt="dice-1"> The player scores nothing and it becomes another player’s turn.</p>';
+    drawMarkup += '<p><img src="images/dice-2.png" alt="dice-2"> ';
+    drawMarkup += '<img src="images/dice-3.png" alt="dice-3"> ';
+    drawMarkup += '<img src="images/dice-4.png" alt="dice-4"> ';
+    drawMarkup += '<img src="images/dice-5.png" alt="dice-5"> ';
+    drawMarkup += '<img src="images/dice-6.png" alt="dice-6"> ';
     drawMarkup += 'The number is added to the player\'s score and the player\'s turn continues.</p>';
-    drawMarkup += '<p><img src="dice-6.png" alt="dice-6"> ';
-    drawMarkup += '<img src="dice-6.png" alt="dice-6"> ';
+    drawMarkup += '<p><img src="images/dice-6.png" alt="dice-6"> ';
+    drawMarkup += '<img src="images/dice-6.png" alt="dice-6"> ';
     drawMarkup += 'The player loses his entire score when he rolls two 6 in a row and it becomes another player’s turn.</p>';
-    drawMarkup += '<p><span>HOLD</span> – The player’s round score is added to his global score.</p>'; 
+    drawMarkup += '<p><span>HOLD</span> – The player’s round score is added to his global score.</p>';
     drawMarkup += '<p><span class="default-score">Score to win: 100</span> - The winning score can be adjusted in the bottom field.</p>';
     drawMarkup += '</div>';
     return drawMarkup;
