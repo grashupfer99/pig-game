@@ -265,7 +265,6 @@ function initialize() {
 
 // Progress bar
 function progressBar(myScore, progBarId) {
-// Headache, pain, stress, persistence, embarrassed myself in Stackoverflow - this is how this line of code was born!
 	progBarId.style.height = ((myScore / winningScore) * 100) + '%';
 }
 
