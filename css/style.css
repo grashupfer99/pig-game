@@ -663,7 +663,7 @@ img {
 
 
     /*************** HELP ****************/
-    .help-menu { font-size: 2.7em; }
+    .help-menu { font-size: 2em; }
 
     .help-info {
         width: 90%;
@@ -705,23 +705,22 @@ img {
     }
 
     /*********** MAIN WRAPPER ************/
-    .wrapper {
-        margin: 0 auto;
-        height: 800px;
-        max-width: 1200px;
-        box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);;
-    }
-
+    .wrapper { max-width: 1200px; }
+    body { overflow: hidden; }
     /************* PLAYERS ***************/
     .player-0-panel,
-    .player-1-panel { padding: 100px 20px; height: 100%; }
+    .player-1-panel {
+      padding: 100px 20px;
+      padding-bottom: 0;
+      height: 100%;
+    }
 
     .player-name {
-        font-size: 3.5em;
+        font-size: 3.2em;
         margin-top: .8em;
     }
 
-    .player-score { font-size: 10em; }
+    .player-score { font-size: 10em; padding-top: 20px; padding-bottom: 10px; }
 
     .active .player-name::after {
         width: 55px;
@@ -742,7 +741,7 @@ img {
         padding: 10px;
         margin: 0;
         border-radius: 15px;
-        font-size: 2.4em;
+        font-size: 2.1em;
         background-color: #613A43;
         border: 1px solid black;
     }
@@ -792,6 +791,37 @@ img {
 
 } /* end of @media (mind-width: 1024px) */
 
+
+/* Large Devices, wide screens */
+@media (min-width: 1200px) {
+
+  /*************** HELP ****************/
+  .help-menu { font-size: 2.7em; }
+
+
+  /*********** MAIN WRAPPER ************/
+  .wrapper {
+      margin: 0 auto;
+      height: 800px;
+      max-width: 1200px;
+      box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);;
+  }
+
+  /************* PLAYERS ***************/
+  .player-0-panel,
+  .player-1-panel { padding: 100px 20px; }
+
+  .player-name { font-size: 3.5em; }
+  .player-score { font-size: 10em; }
+
+
+  /************* BUTTONS ***************/
+  .btn-new,
+  .btn-roll,
+  .btn-hold { font-size: 2.4em; }
+
+
+} /* end of @media (mind-width: 1200px)
 
 /************** ANIMATIONS ***************/
 
