@@ -572,7 +572,7 @@ img {
 
     .active .player-name::after {
         content: '';
-        background-image: url("images/pig.png");
+        background-image: url("../images/pig.png");
         width: 40px;
         height: 40px;
         position: absolute;
