@@ -1,3 +1,3 @@
 # pig-game
-The Pig Game
-Coded a simple dice game with Js.
+The Pig Game.
+Javascript, HTML, CSS: styles, animations and a lot of creativity.
