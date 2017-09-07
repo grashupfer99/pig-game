@@ -1,4 +1,4 @@
-// Function for the loading screen
+// Loading screen 
 ( function()  {
 
 	const loadingScreen = document.getElementById("loading-screen");
